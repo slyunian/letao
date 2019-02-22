@@ -148,6 +148,11 @@ ul {
     color: #337AB7;
 }
 
+.lt_aside .nav a.current {
+    background-color: #1D1F21;
+    border-left: 3px solid #069;
+  }
+
 /* .lt_main .echarts_left,
 .lt_main .echarts_right {
     width: 48%;
