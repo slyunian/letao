@@ -67,17 +67,27 @@ $(function () {
             dataType: 'json',
             success: function (info) {
                 console.log(info);
-                if (info.error===1000) {
+                if (info.error === 1000) {
                     alert('用户名不存在')
                 }
-                if(info.error===1001){
+                if (info.error === 1001) {
                     alert('请输入正确密码')
                 }
                 if (info.success) {
-                    location.href='index.html'
+                    location.href = 'index.html'
                 }
             }
         })
 
     });
+
+
+
+    // 重置状态
+    $('[type="reset"]').on('click', function () {
+        // console.log(1);
+        $("#form").data('bootstrapValidator').resetForm(); //获取表单校验实例
+
+
+    })
 })
