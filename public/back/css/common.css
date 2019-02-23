@@ -153,8 +153,9 @@ ul {
     border-left: 3px solid #069;
   }
 
-/* .lt_main .echarts_left,
+.lt_main .echarts_left,
 .lt_main .echarts_right {
-    width: 48%;
+    width: 49%;
     height: 400px;
-} */
+    /* background-color: green; */
+}
