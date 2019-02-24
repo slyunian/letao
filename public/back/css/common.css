@@ -159,3 +159,9 @@ ul {
     height: 400px;
     /* background-color: green; */
 }
+
+.table.table-bordered th,
+.table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
+}
