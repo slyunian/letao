@@ -15,7 +15,7 @@ function render() {
         },
         dataType: "json",
         success: function (info) {
-            console.log(info);
+            // console.log(info);
             var htmlStr = template('proTb', info);
             $('tbody').html(htmlStr);
 
@@ -57,10 +57,10 @@ $('#addItem').on('click', function () {
 })
 
 // 注册点击事件
-$('.dropdown-menu').on('click', "li a", function () {
+$('.dropdown-menu').on('click', "a", function () {
     $("#dropdownText").text($(this).text());
+    $('[name=brandId]').val($(this).data('id'));
     $('#form').data('bootstrapValidator').updateStatus('brandId', 'VALID');
-    $('[type=brandId]').val($(this).data('id'));
 })
 
 // 文件上传初始化
@@ -68,22 +68,19 @@ $('#imgIn').fileupload({
     dataType: 'json',
     // 图片上传完成的回调函数
     done: function (e, data) {
-        var picObj = data.result; // 接收结果
-        var picUrl = picObj.picAddr; // 获取图片路径
+        // 接收结果
+        var picObj = data.result;
+        // 获取图片路径
+        var picUrl = picObj.picAddr;
 
-        // 将后台返回的图片对象, 追加到数组的最前面
         picArr.unshift(picObj);
 
-        // 追加到 imgBox 最前面
         $('#imgBox').prepend('<img style="height: 100px;" src="' + picUrl + '" alt="">');
 
         if (picArr.length > 3) {
-            // 删除最后一个, 数组的最后一项, 图片结构的最后一张图也要移除
             picArr.pop();
-            // 找到最后一张图, 让他自杀, 找最后一个 img 类型的 元素
             $('#imgBox img:last-of-type').remove();
         }
-
 
         if (picArr.length === 3) {
             // 图片校验的状态, 更新成成功
@@ -185,39 +182,37 @@ $('#form').bootstrapValidator({
 });
 
 // 点击添加按钮
-$('#addBtn').on('click', function (e) {
+$('#form').on('success.form.bv', function (e) {
+    // $('#addBtn').on('click', function (e) {
     e.preventDefault();
-
-    var paramsStr = $('#form').serialize(); // 获取基础的表单数据
-
-    // 还需要拼接上图片数据  picArr
-    // key=value&key1=value1&key2=value2
+    // 获取表单数据
+    var paramsStr = $('#form').serialize();
+    //拼接图片路径
     paramsStr += '&picArr=' + JSON.stringify(picArr);
 
     $.ajax({
-      type: 'post',
-      url: '/product/addProduct',
-      data: paramsStr,
-      dataType: 'json',
-      success: function( info ) {
-        console.log( info );
-        if ( info.success ) {
-          // 关闭模态框
-          $('#addModal').modal('hide');
-          // 重新渲染第一页
-          currentPage = 1;
-          render();
+        type: 'post',
+        url: '/product/addProduct',
+        data: paramsStr,
+        dataType: 'json',
+        success: function (info) {
+            console.log(info);
+            if (info.success) {
+                // 关闭模态框
+                $('#addModal').modal('hide');
+                // 重新渲染第一页
+                currentPage = 1;
+                render();
 
-          // 重置表单元素的状态和内容
-          $('#form').data('bootstrapValidator').resetForm(true);
+                // 重置表单元素的状态和内容
+                $('#form').data('bootstrapValidator').resetForm(true);
 
-          // 重置按钮文本, 图片
-          $('#dropdownText').text('请选择二级分类');
-          $('#imgBox img').remove();
-          picArr = [];
+                // 重置按钮文本, 图片
+                $('#dropdownText').text('请选择二级分类');
+                $('#imgBox img').remove();
+                picArr = [];
+            }
         }
-      }
     })
 
-  })
-
+})
