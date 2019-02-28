@@ -37,5 +37,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# 过滤掉整个back2 文件夹
-/public/back2/
+
+#过滤掉整个front2文件夹
+/public/front2/
