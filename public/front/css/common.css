@@ -32,7 +32,8 @@ img {
     height: 45px;
     width: 100%;
     background-color: #069;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     top: 0;
     left: 0;
     padding: 0 45px;
@@ -71,7 +72,8 @@ img {
     height: 55px;
     width: 100%;
     background-color: #069;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     bottom: 0;
     left: 0;
 }

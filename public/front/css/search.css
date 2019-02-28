@@ -1,0 +1,56 @@
+.lt_search {
+    position: relative;
+    padding: 10px;
+}
+
+.lt_search .btn-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.lt_search .search-txt {
+    height: 34px;
+    font-size: 12px;
+    margin: 0;
+    border: 1px solid #007AFF;
+    border-radius: 5px;
+}
+
+.lt_history {
+    padding: 10px;
+}
+
+.lt_history .title {
+    height: 30px;
+    color: #666;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.lt_history ul {
+    border: 1px dashed red;
+
+}
+
+.lt_history ul li {
+    /* width: 100%; */
+    line-height: 30px;
+    height: 30px;
+    font-size: 12px;
+    border-bottom: 1px dashed red;
+}
+
+.lt_history ul li:last-child {
+    border-bottom: none;
+}
+
+.lt_history .content li a {
+    padding: 0 10px;
+}
+
+.lt_history li i {
+    line-height: 30px;
+}
+
