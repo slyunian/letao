@@ -117,3 +117,64 @@ img {
     /* 由于mui内部基于 定位实现的区域滚动, 所以外层 lt_main 必须加定位 */
     position: relative;
 }
+
+
+/* 搜索框样式 */
+.lt_search {
+    position: relative;
+    padding: 10px;
+}
+
+.lt_search .btn-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.lt_search .search-txt {
+    height: 34px;
+    font-size: 12px;
+    margin: 0;
+    border: 1px solid #007AFF;
+    border-radius: 5px;
+}
+
+
+.productList {
+    padding: 10px;
+}
+
+.productList li {
+    float: left;
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.productList li:nth-child(2n-1) {
+    margin-right: 4%;
+}
+
+.productList li a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.productList li span {
+    color: #FF5D5D;
+}
+
+.productList li span:last-child {
+    color: #8f8f94;
+    text-decoration: line-through;
+}
+
+.productList li img {
+    width: 140px;
+    height: 140px;
+    /* margin: 0 auto; */
+    /* display: block; */
+}

@@ -50,6 +50,7 @@ $('.btn-search').on('click', function () {
     var jsonStr = JSON.stringify(arr);
     localStorage.setItem('search_list', jsonStr);
     render();
+    location.href='searchList.html'
 })
 
 

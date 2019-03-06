@@ -8,33 +8,3 @@
     width: 33.3%;
 }
 
-.productList {
-    padding: 10px;
-}
-
-.productList li {
-    float: left;
-    width: 48%;
-    margin-bottom: 20px;
-}
-
-.productList li:nth-child(2n-1) {
-    margin-right: 4%;
-}
-
-.productList li a {
-    display: block;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.productList li span {
-    color: #FF5D5D;
-}
-
-.productList li span:last-child {
-    color: #8f8f94;
-    text-decoration: line-through;
-}
